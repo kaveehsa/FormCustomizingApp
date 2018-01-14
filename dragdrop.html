@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style type="text/css">
+		
+	</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <!--Thispage-->
+  <link type="text/css" rel="stylesheet" href="/css/main.css">
+  <script src="/js/main.js"></script>
+  <script src="/js/domjson.js"></script>
+  <script src="/js/formmaker.js"></script>
+  <link type="text/css" rel="stylesheet" href="/css/dragdrop.css">
+
+ </head>
+
+ <body>
+
+ 	
+
+	  <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                       Relax
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-line-chart big-letters col-sm-4"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="/Customerforms"><i class="fa fa-paste big-letters col-sm-4"></i> Customer forms</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user-plus big-letters col-sm-4"></i> Registration</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-users big-letters col-sm-4"></i> Patients</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-institution big-letters col-sm-4"></i> Departments</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-file  big-letters col-sm-4"></i> Report</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-user big-letters col-sm-4"></i> Users</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar big-letters col-sm-4"></i> ICU</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog big-letters col-sm-4"></i> Settings<span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">Settings</li>
+                    <li><a href="#">Primary Settings</a></li>
+					<li><a href="#">Lists</a></li>
+					<li><a href="#">Profile Settings</a></li>
+                  </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+
+        <!-- Navigtion bar -->
+	 	
+
+        <div id="page-content-wrapper">
+
+         	<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>                        
+				    </button>
+
+			      <a class="navbar-brand" href="#">Relax</a>
+
+			      	<button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+		                <span class="hamb-top"></span>
+		    			<span class="hamb-middle"></span>
+						<span class="hamb-bottom"></span>
+		            </button>
+
+			    </div>
+			    	
+
+			  </div>
+			</nav>
+
+			<div class="container" style="padding-bottom: 25px;">
+
+				
+        		<div class="btn-group">
+
+				  	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Add a new group</button>
+
+				  	<button type="button" class="btn btn-danger" >Remove group</button>
+
+				  	<div class="col-sm-4" style="padding: 0px;"><input type="text" id="formname" class="form-control" name="" value="defaultform"></input></div>
+
+				  	<button type="button" class="btn btn-success" onclick="sendFile();">Finish and send</button>
+
+				</div>
+        	</div>
+
+        	<div class="modal fade" id="createModal" role="dialog">
+			    <div class="modal-dialog modal-lg">
+			      	<div class="modal-content">
+			        	<div class="modal-header">
+			          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+			          		<h4 class="modal-title">Add a new group</h4>
+			        	</div>
+
+			        	<div class="modal-body">
+
+			        		<div class="container"  style="padding-bottom: 10px;">
+
+			        			<div class="btn-group">
+        		
+					        		<div class="btn-group">
+										<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Number of columns
+										<span class="caret"></span></button>
+										  	<ul class="dropdown-menu">
+										    	<li><a href="#" onclick="setCols(1)">1</a></li>
+										    	<li><a href="#" onclick="setCols(2)">2</a></li>
+										    	<li><a href="#" onclick="setCols(3)">3</a></li>
+										    	<li><a href="#" onclick="setCols(4)">4</a></li>
+										  	</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Number of row
+										<span class="caret"></span></button>
+										  	<ul class="dropdown-menu">
+										    	<li><a href="#" onclick="setRows(1)">1</a></li>
+										    	<li><a href="#" onclick="setRows(2)">2</a></li>
+										    	<li><a href="#" onclick="setRows(3)">3</a></li>
+										    	<li><a href="#" onclick="setRows(4)">4</a></li>
+										    	<li><a href="#" onclick="setRows(5)">5</a></li>
+										    	<li><a href="#" onclick="setRows(6)">6</a></li>
+										    	<li><a href="#" onclick="setRows(7)">7</a></li>
+										    	<li><a href="#" onclick="setRows(8)">8</a></li>
+										    	<li><a href="#" onclick="setRows(9)">9</a></li>
+										  	</ul>
+									</div>
+								</div>
+
+								<button type="button" class="btn btn-success" onclick="add()">Add</button>
+
+								<button type="button" class="btn btn-danger" onclick="reset()">Reset</button>
+
+								<p id="size"></p>
+
+				        	</div>
+
+			          		<div class="container" id="containerParentDiv" style="width: 100%;">
+			          			<div class="col-sm-3">
+			          				<div class=""><input class="form-control full-width" type="text" name="label" id="labelText" placeholder="Label" ></div>
+			          			</div>
+
+			          			<div class="col-sm-9" id="containerDiv" name="condiv"></div>
+			          		</div>
+			        	</div>
+
+			        	<div class="modal-footer">
+			        		<button type="button" class="btn btn-default" onclick="addToForm();">Add to form</button>
+			          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        	</div>
+			      	</div>
+			    </div>
+			</div>
+
+        	<div id="formzone" class="container form-horizontal" name="fz"></div>
+		</div>
+        <!-- /#page-content-wrapper -->
+        <div id="print"></div>
+
+    </div>
+    <!-- /#wrapper -->
+    <div style="display: none;">
+    	<div id="inputGroup" class="input-group">
+		    <input type="text" name="" class="form-control" placeholder="Enter the name" aria-label="Search for...">
+		      	<span class="input-group-btn">
+		        	<button class="btn btn-secondary" type="button" onclick="replaceElement(event);">Go!</button>
+		      	</span>
+		</div>
+
+		<div class="btn-group"  id="addNew">
+
+			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Add a new element <span class="caret"></span></button>
+
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#" onclick="changeToOther(event,'checkbox');">Checkbox</a></li>
+				<li><a href="#" onclick="changeToText(event);">Text box</a></li>
+				<li><a href="#" onclick="changeToOther(event,'radio');;">Radio buttons</a></li>
+				<li><a href="#" onclick="changeToOther(event,'label');">Label</a></li>
+			</ul>
+		</div>
+    </div>
+
+
+
+ </body>
+ </html>
